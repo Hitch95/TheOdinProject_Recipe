@@ -19,7 +19,7 @@ function loader() {
     .to(".f2", { y: 0, duration: 0.6, ease: "power2.out" })
     .add(() => {
       document.querySelector(".flip-img1").style.backgroundImage =
-        "url('ressources/image2.png')";
+        "url('./ressources/image1.webp')";
     })
     .to(".f2", { y: "-100%" })
 
@@ -31,6 +31,7 @@ function loader() {
       document.querySelector("video").play();
     }, "-=0.8");
 }
+
 
 // Hamburger
 const hamburgerToggler = document.querySelector(".hamburger");
@@ -56,3 +57,11 @@ new ResizeObserver((entries) => {
     navLinksContainer.style.transition = "none";
   }
 }).observe(document.body);
+
+
+function subNavElementAppear () {
+  if (ariaToggle === true) {
+    navLinksContainer.style.display = "flex";
+  }
+}
+hamburgerToggler.addEventListener("click", subNavElementAppear);
